@@ -1,0 +1,210 @@
+/*bootstrap.min.css*/
+:root
+{ --blue: #007ee1;
+  --indigo: #6610f2;
+  --purple: #7971ea;
+  --pink: #e83e8c;
+  --red: #f23a2e;
+  --orange: #f89d13;
+  --yellow: #eec60a;
+  --green: #7cbd1e;
+  --teal: #20c997;
+  --cyan: #53cde2;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007ee1;
+  --secondary: #6c757d;
+  --success: #7cbd1e;
+  --info: #53cde2;
+  --warning: #eec60a;
+  --danger: #f23a2e;
+  --light: #f8f9fa;
+  --dark: #343a40;
+}
+
+a 
+{ color: #007ee1;
+}
+
+a:hover 
+{
+    color: #007ee1;
+}
+	
+/*.btn-primary {
+  background-color: #f89d13;
+  border-color: #f89d13; }
+.btn-primary:hover {
+    background-color: #de8807;
+    border-color: #d28106; }
+.btn-primary:focus, .btn-primary.focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(248, 157, 19, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(248, 157, 19, 0.5); }
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #f89d13;
+    border-color: #f89d13; }
+	
+.btn-outline-primary {
+  color: #f89d13;
+  border-color: #f89d13; }
+.btn-outline-primary:hover {
+    background-color: #f89d13;
+    border-color: #f89d13; }
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(248, 157, 19, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(248, 157, 19, 0.5); }
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
+	color: #f89d13; }
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
+.show > .btn-outline-primary.dropdown-toggle {
+    background-color: #f89d13;
+    border-color: #f89d13; }
+.btn-link 
+{ color: #f89d13;
+} */
+
+.dropdown-item.active, .dropdown-item:active 
+{
+    background-color: #007ee1; 
+}
+.custom-control-input:checked ~ .custom-control-label::before 
+{
+
+    background-color: #007ee1; 
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before 
+{
+	  background-color: #007ee1; 
+}
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before 
+{
+	background-color: #007ee1; 
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before 
+{
+	background-color: #007ee1; 
+}
+.custom-range::-webkit-slider-thumb
+{
+	background-color: #007ee1;
+}
+.custom-range::-moz-range-thumb 
+{
+	background-color: #007ee1;
+}
+.custom-range::-ms-thumb 
+{    
+	background-color: #007ee1;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link 
+{
+	background-color: #007ee1; 
+}
+.page-link 
+{
+	color: #007ee1;
+}
+.page-item.active .page-link 
+{
+	background-color: #007ee1;
+	border-color: #007ee1; 
+}
+.badge-primary 
+{
+	background-color: #007ee1; 
+}
+.progress-bar 
+{
+	background-color: #007ee1;
+}
+.list-group-item.active 
+{
+	background-color: #007ee1;
+    border-color: #007ee1; 
+}
+.bg-primary 
+{
+	background-color: #00457b !important; 
+}
+
+.border-primary 
+{
+	border-color: #f89d13 !important; 
+}
+.text-primary 
+{
+	color: #007ee1 !important; 
+}
+
+
+
+/*style.css*/
+
+.site-navbar .site-navigation .site-menu .active > a 
+{
+	color: #00457b; 
+}
+.site-navbar .site-navigation .site-menu > li > a:hover 
+{
+	color: #00457b; 
+}
+.site-navbar .site-navigation .site-menu .has-children .dropdown 
+{
+	border-top: 4px solid #00457b;
+}
+.site-navbar .site-navigation .site-menu .has-children .dropdown > li > a:hover 
+{
+	color: #00457b; 
+}
+.site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:hover > a, .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:active > a, .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:focus > a 
+{
+	color: #00457b;
+}
+.site-navbar .site-navigation .site-menu .has-children:hover > a, .site-navbar .site-navigation .site-menu .has-children:focus > a, .site-navbar .site-navigation .site-menu .has-children:active > a 
+{
+	color: #00457b; 
+}
+.site-mobile-menu .site-nav-wrap li.active > a 
+{
+	color: #00457b;
+}
+.block-13 .owl-dots .owl-dot.active > span 
+{
+	background: #00457b;
+}
+
+#slider-range .ui-slider-handle 
+{
+	background: #007ee1; 
+}
+#slider-range .ui-slider-range
+{
+	background-color: #007ee1;
+}
+.service .icon 
+{
+	color: #00457b; 
+}
+.site-pagination a.active 
+{
+	background: #00457b;
+}
+.unit-8 .accordion-item .heading > a[aria-expanded="true"]:before 
+{
+	background: #00457b;
+	border: 1px solid #00457b; 
+}
+.prop-entry .prop-text .prop-more-info 
+{
+	background: #00457b;
+}
+.prop-entry .prop-text .price 
+{
+	background: #00457b;
+}
+.feature .icon 
+{
+color: #00457b;
+}
