@@ -39,7 +39,6 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/override.css">
     
   </head>
   <body>
