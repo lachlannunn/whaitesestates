@@ -1,7 +1,26 @@
 <?php
   include_once "dbconnect.php";
 
-$sql = "SELECT * FROM lnunn_properties;";
+/*
+$saletype = $_POST["saletype"];
+$city = $_POST["city"];
+$price = $_POST["price"]; 
+
+if (!empty($saletype) && !empty($city) && !empty($price)) {
+$sql = "SELECT * FROM lnunn_properties WHERE sale_type = $saletype AND city = $city AND price > $price";
+} else {
+$sql = "SELECT * FROM lnunn_properties;";  
+}
+
+echo $sql;
+*/
+
+//$sql = "SELECT * FROM lnunn_properties WHERE sale_type = 'Auction'"; 
+//$sql = "SELECT * FROM lnunn_properties WHERE sale_type = 'Sale'"; 
+//$sql = "SELECT * FROM lnunn_properties WHERE sale_type = 'Auction' AND city = 'South Grafton'"; 
+/*
+$sql = "SELECT * FROM lnunn_properties;"; 
+
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) {
   echo "SQL statementfailed";
@@ -12,6 +31,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
   $setpropertyorder = $rowcount + 1;
 
 }
+*/
 
 ?>
 <!DOCTYPE html>
@@ -39,6 +59,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/override.css">
     
   </head>
   <body>
@@ -78,39 +99,15 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
         <div class="container py-1">
           <div class="row align-items-center">
             <div class="col-8 col-md-8 col-lg-4">
-              <h1 class=""><a href="index.html" class="h5 text-uppercase text-black"><strong>Whaites Estates<span class="text-danger">.</span></strong></a></h1>
+              <h1 class=""><a href="index.php" class="h5 text-uppercase text-black"><strong>Whaites Estates<span class="text-danger">.</span></strong></a></h1>
             </div>
             <div class="col-4 col-md-4 col-lg-8">
-              <nav class="site-navigation text-right text-md-right" role="navigation">
+             
 
-                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+<?php   include_once "menu.php";?>  
 
-                <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li>
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li class="has-children active">
-                    <a href="properties.html">Properties</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Buy</a></li>
-                      <li><a href="#">Rent</a></li>
-                      <li><a href="#">Lease</a></li>
-                     <!-- <li class="has-children">
-                         <a href="#">Menu</a>
-                        <ul class="dropdown">
-                          <li><a href="#">Menu One</a></li>
-                          <li><a href="#">Menu Two</a></li>
-                          <li><a href="#">Menu Three</a></li>
-                        </ul>
-                      </li> -->
 
-                    </ul>
-                  </li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
-              </nav>
+
             </div>
            
 
@@ -132,41 +129,50 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
     <div class="pt-5">
       <div class="container">
-        <form class="row">
+        <form class="row" action="properties.php">
           
           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="select-wrap">
               <span class="icon icon-arrow_drop_down"></span>
-              <select name="offer-types" id="offer-types" class="form-control d-block rounded-0">
-                <option value="">Lot Area</option>
-                <option value="1000">1000</option>
-                <option value="800">800</option>
-                <option value="600">600</option>
-                <option value="400">400</option>
-                <option value="200">200</option>
-                <option value="100">100</option>
+              <select name="city" id="city" class="form-control d-block rounded-0">
+                
+<?php
+
+if (isset($_REQUEST['city'])){ 
+$city = $_REQUEST['city'];
+  echo '<option value="'.$city.'">'.$city.'</option>'; 
+   }else {
+    echo '<option value="">City </option>';
+   }
+?>
+                <option value="Grafton">Grafton</option>
+                <option value="South Grafton">South Grafton</option>
+                <option value="The Pinnacles" >The Pinnacles</option>
+
+
               </select>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="select-wrap">
               <span class="icon icon-arrow_drop_down"></span>
-              <select name="offer-types" id="offer-types" class="form-control d-block rounded-0">
+              <select name="saletype" id="saletype" class="form-control d-block rounded-0">
                 <option value="">Property Status</option>
-                <option value="For Sale">For Sale</option>
-                <option value="For Rent">For Rent</option>
+                <option value="Sale">For Sale</option>
+                <option value="Rent">For Rent</option>
+                <option value="Auction">For Auction</option>                
               </select>
             </div>
           </div>
+          <!--
           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="select-wrap">
               <span class="icon icon-arrow_drop_down"></span>
-              <select name="offer-types" id="offer-types" class="form-control d-block rounded-0">
-                <option value="">Location</option>
-                <option value="United States">United States</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="Canada">Canada</option>
-                <option value="Belgium">Belgium</option>
+              <select name="price" id="price" class="form-control d-block rounded-0">
+                <option value="">Price Rage</option>
+                <option value="100000">> 100000</option>
+                <option value="150000">> 150000</option>
+                <option value="200000">> 200000</option>
               </select>
             </div>
           </div>
@@ -209,11 +215,11 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
                 <option value="5+">5+</option>
               </select>
             </div>
-          </div>
+          </div> -->
           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="mb-4">
               <div id="slider-range" class="border-primary"></div>
-              <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
+              <input type="text" name="priceslider" id="amount" class="form-control border-0 pl-0 bg-white" />
             </div>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -234,22 +240,54 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
             </div>
           </div>
         </div>
-		  
+		   <div class="row mb-5">
 <?php
-      $sql = "SELECT * FROM lnunn_properties ORDER BY property_id";
-      /*$stmt = mysqli_stmt_init($conn);
+      // show all properties 
+      
+      $wheresearchvalues =''; 
+      if (isset($_REQUEST['city'])){ // user must have selected from filers search 
+
+// properties.php? city=Grafton & saletype= & price=100000 & offer-types =1000 &offer-types=2&offer-types=3 &value=%24200000+-+%24750000
+        // WHERE `sale_type` = '$saletype' AND `city`= '$city'  
+              
+
+              if ($_REQUEST['city'] != '') {
+                $wheresearchvalues .=' WHERE `city` = \''.$_REQUEST['city'].'\''; 
+                
+              } 
+              if ($_REQUEST['saletype'] != '') {
+
+                if ($wheresearchvalues == '') {
+                   $wheresearchvalues .=' WHERE `sale_type` = \''.$_REQUEST['saletype'].'\''; 
+                }else {
+                    $wheresearchvalues .=' AND `sale_type` = \''.$_REQUEST['saletype'].'\''; 
+                }
+              }
+      }
+
+        // no search filters applied 
+        $sql = "SELECT * FROM lnunn_properties $wheresearchvalues ORDER BY property_id";
+     
+
+ //echo '<br>the sql is... '. $sql . ' <hr>';
+
+
+
+        //sql error check
+      $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
           echo "SQL statement failed";
         } else {
           mysqli_stmt_execute($stmt);
           $result = mysqli_stmt_get_result($stmt);
+          if (mysqli_num_rows($result) > 0) {
 
           while ($row = mysqli_fetch_assoc($result)){
-            */
-            $row = mysqli_fetch_assoc($result);
-                    echo '<div class="row mb-5">
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
+    
+                
+               //website properties tiles, updated from database 
+          echo'<div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.php?id='.$row["property_id"].'" class="prop-entry d-block">
               <figure>
                 <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
               </figure>
@@ -282,343 +320,12 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
               </div>
             </a>
           </div>';
+         
+          }
           
+        } else {     echo "0 results";   }
 
-          $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-
-                    $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-          
-
-
-                    $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-
-          $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-
-          $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-
-          $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-
-                    $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-
-                    $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-
-          $row = mysqli_fetch_assoc($result);
-                    echo '
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">'.$row["sale_type"].' $'.$row["price"].'</span>
-                  <h3 class="title">'.$row["address"].'</h3>
-                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>'.$row["bedrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>'.$row["bathrooms"].'</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>'.$row["carports"].'</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>';
-
+}
 
 
           ?>

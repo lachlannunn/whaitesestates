@@ -63,38 +63,13 @@
         <div class="container py-1">
           <div class="row align-items-center">
             <div class="col-8 col-md-8 col-lg-4">
-              <h1 class=""><a href="index.html" class="h5 text-uppercase text-black"><strong>Whaites Estates<span class="text-danger">.</span></strong></a></h1>
+              <h1 class=""><a href="index.php" class="h5 text-uppercase text-black"><strong>Whaites Estates<span class="text-danger">.</span></strong></a></h1>
             </div>
             <div class="col-4 col-md-4 col-lg-8">
-              <nav class="site-navigation text-right text-md-right" role="navigation">
 
-                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-                <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li class="active">
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li class="has-children">
-                    <a href="properties.html">Properties</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Buy</a></li>
-                      <li><a href="#">Rent</a></li>
-                      <li><a href="#">Lease</a></li>
-                      <li class="has-children">
-                        <a href="#">Menu</a>
-                        <ul class="dropdown">
-                          <li><a href="#">Menu One</a></li>
-                          <li><a href="#">Menu Two</a></li>
-                          <li><a href="#">Menu Three</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
-              </nav>
+<?php //seperate menu file to reduce work load of changes
+   include_once "menu.php";
+ ?>  
             </div>
            
 
@@ -247,7 +222,7 @@
         </div>
         <div class="row mb-5">
           <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
+            <a href="property-details.php" class="prop-entry d-block">
               <figure>
                 <img src="images/img_1.jpg" alt="Image" class="img-fluid">
               </figure>
@@ -281,7 +256,7 @@
             </a>
           </div>
           <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
+            <a href="property-details.php" class="prop-entry d-block">
               <figure>
                 <img src="images/img_2.jpg" alt="Image" class="img-fluid">
               </figure>
@@ -315,7 +290,7 @@
             </a>
           </div>
           <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
+            <a href="property-details.php" class="prop-entry d-block">
               <figure>
                 <img src="images/img_3.jpg" alt="Image" class="img-fluid">
               </figure>
@@ -350,7 +325,7 @@
           </div>
 
           <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
+            <a href="property-details.php" class="prop-entry d-block">
               <figure>
                 <img src="images/img_4.jpg" alt="Image" class="img-fluid">
               </figure>
@@ -384,7 +359,7 @@
             </a>
           </div>
           <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
+            <a href="property-details.php" class="prop-entry d-block">
               <figure>
                 <img src="images/img_5.jpg" alt="Image" class="img-fluid">
               </figure>
@@ -418,7 +393,7 @@
             </a>
           </div>
           <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
+            <a href="property-details.php" class="prop-entry d-block">
               <figure>
                 <img src="images/img_6.jpg" alt="Image" class="img-fluid">
               </figure>

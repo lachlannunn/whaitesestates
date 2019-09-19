@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>HomeSpace &mdash; Colorlib Website Template</title>
+    <title>Whaites Estates &mdash; Colorlib Website Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -63,38 +63,10 @@
         <div class="container py-1">
           <div class="row align-items-center">
             <div class="col-8 col-md-8 col-lg-4">
-              <h1 class=""><a href="index.html" class="h5 text-uppercase text-black"><strong>HomeSpace<span class="text-danger">.</span></strong></a></h1>
+              <h1 class=""><a href="index.php" class="h5 text-uppercase text-black"><strong>Whaites Estates<span class="text-danger">.</span></strong></a></h1>
             </div>
             <div class="col-4 col-md-4 col-lg-8">
-              <nav class="site-navigation text-right text-md-right" role="navigation">
-
-                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-                <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li>
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li class="has-children">
-                    <a href="properties.php">Properties</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Buy</a></li>
-                      <li><a href="#">Rent</a></li>
-                      <li><a href="#">Lease</a></li>
-                      <li class="has-children">
-                        <a href="#">Menu</a>
-                        <ul class="dropdown">
-                          <li><a href="#">Menu One</a></li>
-                          <li><a href="#">Menu Two</a></li>
-                          <li><a href="#">Menu Three</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li class="active"><a href="contact.html">Contact</a></li>
-                </ul>
-              </nav>
+              <?php   include_once "menu.php";?>  
             </div>
            
 
@@ -107,82 +79,87 @@
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-10">
-            <h1 class="mb-2">Contact Us</h1>
-            <div><a href="index.html">Home</a> <span class="mx-2 text-white">&bullet;</span> <strong class="text-white">Contact</strong></div>
+            <h1 class="mb-2">Our Blog</h1>
+            <div><a href="index.php">Home</a> <span class="mx-2 text-white">&bullet;</span> <strong class="text-white">Blog</strong></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="site-section">
+    <div class="site-section site-section-sm bg-light">
       <div class="container">
-        <div class="row">
-       
-          <div class="col-md-12 col-lg-8 mb-5">
-          
-            
-          
-            <form action="#" class="p-5 bg-white border">
-
-              <div class="row form-group">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="fullname">Full Name</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="Full Name">
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="font-weight-bold" for="email">Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Email Address">
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="font-weight-bold" for="email">Subject</label>
-                  <input type="text" id="subject" class="form-control" placeholder="Enter Subject">
-                </div>
-              </div>
-              
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="font-weight-bold" for="message">Message</label> 
-                  <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Say hello to us"></textarea>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary  py-2 px-4 rounded-0">
-                </div>
-              </div>
-
-  
-            </form>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="p-4 mb-3 bg-white">
-              <h3 class="h6 text-black mb-3 text-uppercase">Contact Info</h3>
-              <p class="mb-0 font-weight-bold">Address</p>
-              <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
-
-              <p class="mb-0 font-weight-bold">Phone</p>
-              <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
-
-              <p class="mb-0 font-weight-bold">Email Address</p>
-              <p class="mb-0"><a href="#">youremail@domain.com</a></p>
-
+        
+        <div class="row mb-5">
+          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+            <a href="#"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
             </div>
-            
           </div>
+          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+            <a href="#"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="300">
+            <a href="#"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+            <a href="#"><img src="images/img_5.jpg" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+            <a href="#"><img src="images/img_6.jpg" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="300">
+            <a href="#"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
+            <div class="p-4 bg-white">
+              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
+              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
+            </div>
+          </div>
+
         </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="site-pagination">
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              <span>...</span>
+              <a href="#">10</a>
+            </div>
+          </div>  
+        </div>
+        
       </div>
     </div>
-
 
     
-    <div class="site-section bg-light">
+    <div class="site-section">
     <div class="container">
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7">
@@ -332,7 +309,7 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="mb-5">
-              <h3 class="footer-heading mb-4">About HomeSpace</h3>
+              <h3 class="footer-heading mb-4">About Whaites Estates</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
             </div>
 
