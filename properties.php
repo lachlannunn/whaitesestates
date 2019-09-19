@@ -1,3 +1,19 @@
+<?php
+  include_once "dbconnect.php";
+
+$sql = "SELECT * FROM lnunn_properties;";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)) {
+  echo "SQL statementfailed";
+} else {
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+  $rowcount = mysqli_num_rows($result);
+  $setpropertyorder = $rowcount + 1;
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +39,6 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
-	  <link rel="stylesheet" href="css/override.css">
     <link rel="stylesheet" href="css/override.css">
     
   </head>
@@ -72,23 +87,24 @@
                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li class="active">
+                  <li>
                     <a href="index.html">Home</a>
                   </li>
-                  <li class="has-children">
-                    <a href="properties.php">Properties</a>
+                  <li class="has-children active">
+                    <a href="properties.html">Properties</a>
                     <ul class="dropdown">
                       <li><a href="#">Buy</a></li>
                       <li><a href="#">Rent</a></li>
                       <li><a href="#">Lease</a></li>
-                      <li class="has-children">
-                        <a href="#">Menu</a>
+                     <!-- <li class="has-children">
+                         <a href="#">Menu</a>
                         <ul class="dropdown">
                           <li><a href="#">Menu One</a></li>
                           <li><a href="#">Menu Two</a></li>
                           <li><a href="#">Menu Three</a></li>
                         </ul>
-                      </li>
+                      </li> -->
+
                     </ul>
                   </li>
                   <li><a href="blog.html">Blog</a></li>
@@ -107,16 +123,17 @@
     <div class="slide-one-item home-slider owl-carousel">
 
       <div class="site-blocks-cover" style="background-image: url(images/hero_bg_1.jpg); height: 600px" data-aos="fade" data-stellar-background-ratio="0.5">
-      </div>  
- 	  <div class="site-blocks-cover" style="background-image: url(images/hero_bg_3.jpg); height: 600px" data-aos="fade" data-stellar-background-ratio="0.5">
-      </div>
-        
+          
+    </div>  
+      <div class="site-blocks-cover" style="background-image: url(images/hero_bg_3.jpg); height: 600px" data-aos="fade" data-stellar-background-ratio="0.5">
+      
+       </div>  
 
     </div>
 
-    <div class="py-5">
+    <div class="pt-5">
       <div class="container">
-        <form class="row mb-5">
+        <form class="row">
           
           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="select-wrap">
@@ -206,37 +223,9 @@
           
         </form>
 
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
-            <div class="feature d-flex align-items-start">
-              <span class="icon mr-3 flaticon-house"></span>
-              <div class="text">
-                <h2 class="mt-0">Wide Range of Properties</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem sint debitis porro quae dolorum neque.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
-            <div class="feature d-flex align-items-start">
-              <span class="icon mr-3 flaticon-rent"></span>
-              <div class="text">
-                <h2 class="mt-0">Rent or Sale</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem sint debitis porro quae dolorum neque.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
-            <div class="feature d-flex align-items-start">
-              <span class="icon mr-3 flaticon-location"></span>
-              <div class="text">
-                <h2 class="mt-0">Property Location</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem sint debitis porro quae dolorum neque.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
-    </div>
+	  </div>  
     <div class="site-section site-section-sm bg-light">
       <div class="container">
         <div class="row mb-5">
@@ -246,228 +235,395 @@
             </div>
           </div>
         </div>
-        <div class="row mb-5">
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">$1,930,000</span>
-                  <h3 class="title">853 S Lucerne Blvd</h3>
-                  <p class="location">Los Angeles, CA 90005</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>240m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>1</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">$2,438,000</span>
-                  <h3 class="title">853 S Lucerne Blvd</h3>
-                  <p class="location">Los Angeles, CA 90005</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>240m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>1</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">$5,320,000</span>
-                  <h3 class="title">853 S Lucerne Blvd</h3>
-                  <p class="location">Los Angeles, CA 90005</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>240m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>1</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
+		  
+<?php
+      $sql = "SELECT * FROM lnunn_properties ORDER BY property_id";
+      /*$stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+          echo "SQL statement failed";
+        } else {
+          mysqli_stmt_execute($stmt);
+          $result = mysqli_stmt_get_result($stmt);
 
+          while ($row = mysqli_fetch_assoc($result)){
+            */
+            $row = mysqli_fetch_assoc($result);
+                    echo '<div class="row mb-5">
           <div class="col-md-6 col-lg-4 mb-4">
             <a href="property-details.html" class="prop-entry d-block">
               <figure>
-                <img src="images/img_4.jpg" alt="Image" class="img-fluid">
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
               </figure>
               <div class="prop-text">
                 <div class="inner">
-                  <span class="price rounded">$2,350,000</span>
-                  <h3 class="title">853 S Lucerne Blvd</h3>
-                  <p class="location">Los Angeles, CA 90005</p>
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].' '.$row["postcode"].'</p>
                 </div>
                 <div class="prop-more-info">
                   <div class="inner d-flex">
                     <div class="col">
                       <span>Area:</span>
-                      <strong>240m<sup>2</sup></strong>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
                     </div>
                     <div class="col">
                       <span>Beds:</span>
-                      <strong>2</strong>
+                      <strong>'.$row["bedrooms"].'</strong>
                     </div>
                     <div class="col">
                       <span>Baths:</span>
-                      <strong>2</strong>
+                      <strong>'.$row["bathrooms"].'</strong>
                     </div>
                     <div class="col">
                       <span>Garages:</span>
-                      <strong>1</strong>
+                      <strong>'.$row["carports"].'</strong>
                     </div>
                   </div>
                 </div>
               </div>
             </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="images/img_5.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">$1,550,000</span>
-                  <h3 class="title">853 S Lucerne Blvd</h3>
-                  <p class="location">Los Angeles, CA 90005</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>240m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>1</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="images/img_6.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded">$4,291,000</span>
-                  <h3 class="title">853 S Lucerne Blvd</h3>
-                  <p class="location">Los Angeles, CA 90005</p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Area:</span>
-                      <strong>240m<sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Beds:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Baths:</span>
-                      <strong>2</strong>
-                    </div>
-                    <div class="col">
-                      <span>Garages:</span>
-                      <strong>1</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
+          </div>';
+          
 
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <div class="site-pagination">
-              <a href="#" class="active">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <span>...</span>
-              <a href="#">10</a>
-            </div>
-          </div>  
-        </div>
-        
+          $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+
+                    $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+          
+
+
+                    $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+
+          $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+
+          $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+
+          $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+
+                    $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+
+                    $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' '.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+
+          $row = mysqli_fetch_assoc($result);
+                    echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="property-details.html" class="prop-entry d-block">
+              <figure>
+                <img src="'.$row["property_thumbnail"].'" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">'.$row["sale_type"].' $'.$row["price"].'</span>
+                  <h3 class="title">'.$row["address"].'</h3>
+                  <p class="location">'.$row["city"].', '.$row["state"].' '.$row["postcode"].'</p>
+                </div>
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>Area:</span>
+                      <strong>'.$row["land_area"].'m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>Beds:</span>
+                      <strong>'.$row["bedrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Baths:</span>
+                      <strong>'.$row["bathrooms"].'</strong>
+                    </div>
+                    <div class="col">
+                      <span>Garages:</span>
+                      <strong>'.$row["carports"].'</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>';
+
+
+
+          ?>
+		  </div>
       </div>
     </div>
 
@@ -503,235 +659,11 @@
               <p><span class="read-more">Learn More</span></p>
             </a>
           </div>
-
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="#" class="service text-center border rounded">
-              <span class="icon flaticon-house"></span>
-              <h2 class="service-heading">Research Subburbs</h2>
-              <p><span class="read-more">Learn More</span></p>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="#" class="service text-center border rounded">
-              <span class="icon flaticon-sold"></span>
-              <h2 class="service-heading">Sold Houses</h2>
-              <p><span class="read-more">Learn More</span></p>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <a href="#" class="service text-center border rounded">
-              <span class="icon flaticon-camera"></span>
-              <h2 class="service-heading">Security Priority</h2>
-              <p><span class="read-more">Learn More</span></p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center">
-            <div class="site-section-title">
-              <h2>Our Blog</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
-            <a href="#"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
-            <div class="p-4 bg-white">
-              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
-            <a href="#"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
-            <div class="p-4 bg-white">
-              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="300">
-            <a href="#"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
-            <div class="p-4 bg-white">
-              <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-              <h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
-            </div>
-          </div>
-
-        </div>
-
+</div>
       </div>
     </div>
 
     
-    <div class="site-section">
-    <div class="container">
-      <div class="row mb-5 justify-content-center">
-        <div class="col-md-7">
-          <div class="site-section-title text-center">
-            <h2>Our Agents</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row block-13">
-
-        <div class="nonloop-block-13 owl-carousel">
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Megan Smith</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Brooke Cagle</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_3.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Philip Martin</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Megan Smith</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Brooke Cagle</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_3.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Philip Martin</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Megan Smith</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Brooke Cagle</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-item">
-            <div class="team-member text-center">
-              <img src="images/person_3.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
-              <div class="text p-3">
-                <h2 class="mb-2 font-weight-light text-black h4">Philip Martin</h2>
-                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. </p>
-                <p>
-                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
-                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        </div>
-      </div>
-    </div>
 
     <div class="site-section site-section-sm bg-primary">
       <div class="container">

@@ -1,2 +1,0 @@
-# whaitesestates
-Whaites estates website 
